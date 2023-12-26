@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File API</title>
+</head>
+<body>
+    <input type="file" id="file" />
+    <div id="info"></div>
+
+    <script>
+        const fileInput = document.getElementById('file');
+        const fileInfo = document.getElementById('info');
+
+        fileInput.addEventListener('change', (event) => {
+            const selectedFile = event.target.files[0];
+            if (selectedFile) {
+                fileInfo.innerHTML = `
+                    <p>Name: ${selectedFile.name}</p>
+                    <p>Type: ${selectedFile.type}</p>
+                    <p>Size: ${selectedFile.size} bytes</p>
+                `;
+            }
+        });
+    </script>
+</body>
+</html>
